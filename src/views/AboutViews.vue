@@ -33,14 +33,24 @@
 <style module lang="scss">
   .about {
     display: flex;
+    width: 100%;
     flex-flow: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     letter-spacing: 2px;
+
+    @media (min-width: $desktop-size-small) {
+      align-items: center;
+    }
   }
 
   .info {
-    flex: 0 0 60%;
+    flex: 0 0 82%;
+    width: 82%;
+    @media (min-width: $tablet-size-port) {
+      flex: 0 0 60%;
+      width: 60%;
+    }
   }
 
   .title {
@@ -48,17 +58,32 @@
   }
 
   .me {
-    flex: 0 0 25%;
+    flex: 0 0 12%;
+    width: 12%;
+
+    @media (min-width: $desktop-size-small) {
+      flex: 0 0 25%;
+      width: 25%;
+    }
   }
 
   .history {
-    font-size: 1.2rem;
+    font-size: 0.9rem;
     margin-bottom: 2rem;
     color: var(--color-text-dusk);
+
+    @media (min-width: $tablet-size-port) {
+      font-size: 1rem;
+    }
+
+    @media (min-width: $tablet-size-land) {
+      font-size: 1.2rem;
+    }
   }
 
   .skills {
     display: flex;
     align-items: center;
+    width: 100%;
   }
 </style>

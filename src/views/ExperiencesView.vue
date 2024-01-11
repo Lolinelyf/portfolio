@@ -39,23 +39,51 @@
 <style module lang="scss">
   .flex {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
+
+    @media (min-width: $tablet-size-port) {
+      flex-flow: row nowrap;
+    }
   }
   .experience {
-    flex: 0 1 calc((100% - 4rem) / 3);
-    padding: 2rem;
-    background-color: var(--color-grey-c);
+    flex: 0 0 100%;
+    padding: 1rem;
+    background-color: var(--color-grey-a);
     border-radius: 1rem;
     box-shadow: var(--shadow-small-default);
+    margin-bottom: 1rem;
 
-    &:not(:last-child) {
-      margin-right: 2rem;
+    @media (min-width: $mobile-size-land) {
+      flex: 0 0 calc((100% - 2rem) / 2);
+      margin-bottom: 2rem;
+
+      &:not(:nth-child(2n)) {
+        margin-right: 2rem;
+      }
+    }
+
+    @media (min-width: $tablet-size-port) {
+      flex: 0 0 calc((100% - 4rem) / 3);
+      &:not(:nth-child(2n)) {
+        margin-right: 0;
+      }
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+
+    @media (min-width: $tablet-size-land) {
+      padding: 2rem;
     }
   }
 
   .title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    @media (min-width: $tablet-size-land) {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
   }
 </style>

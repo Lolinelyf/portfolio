@@ -85,6 +85,11 @@ textarea {
   margin: 0;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+}
+
 button,
 input {
   overflow: visible;
@@ -173,6 +178,10 @@ summary {
 
 template {
   display: none;
+}
+
+div {
+  box-sizing: border-box;
 }
 
 [hidden] {

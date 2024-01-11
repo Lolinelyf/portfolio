@@ -9,36 +9,52 @@ html {
 }
 
 body {
-  padding-top: 4rem;
+  padding-top: 1rem;
+
+  @media (min-width: $tablet-size-port) {
+    padding-top: 4rem;
+  }
 }
 
 h1,
 h2,
-h3 {
+h3,
+p {
   margin: 0 0 1rem 0;
 }
 
 h1 {
   display: inline-block;
-  font-size: 2.4rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
-  letter-spacing: 4px;
+  letter-spacing: 2;
   font-weight: 500;
   color: var(--color-accent);
   border-bottom: 3px solid var(--color-accent-dusk);
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
+
+  @media (min-width: $tablet-size-port) {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+    letter-spacing: 4px;
+  }
+
+  @media (min-width: $desktop-size-small) {
+    font-size: 2.4rem;
+    margin-bottom: 4rem;
+  }
 }
 
 h2 {
-  font-size: 1.8rem;
+  font-size: 1.1rem;
+
+  @media (min-width: $tablet-size-land) {
+    font-size: 1.8rem;
+  }
 }
 
 h3 {
   font-size: 1.4rem;
-}
-
-p {
-  margin: 0 0 1rem 0;
 }
 
 ul {
@@ -46,18 +62,20 @@ ul {
   padding: 0;
   padding-inline-start: 1rem;
   list-style-type: disc;
-
-  /* border-left: 3px solid var(--color-accent); */
 }
 
 li {
-  padding-left: 1rem;
+  padding-left: 0.5rem;
   padding-bottom: 1rem;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
   letter-spacing: 1px;
   font-weight: 500;
   color: var(--color-text-dusk);
+  @media (min-width: $tablet-size-land) {
+    font-size: 1rem;
+    padding-left: 1rem;
+  }
 }
 
 li::marker {

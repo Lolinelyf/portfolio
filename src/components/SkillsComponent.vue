@@ -26,22 +26,34 @@
   .skill {
     display: flex;
     align-items: center;
-    margin-right: 3rem;
-    font-size: 1rem;
+    margin-right: 1rem;
+    font-size: 0.8rem;
     font-weight: 400;
+
+    @media (min-width: $tablet-size-port) {
+      font-size: 1rem;
+      margin-right: 3rem;
+    }
 
     & > p {
       margin: 0;
     }
   }
   .lang {
-    margin-right: 2rem;
-    filter: grayscale(1);
-    transition: filter ease 0.25s;
-    margin-right: 1rem;
+    width: 28px;
+    height: 28px;
+    margin-right: 0.5rem;
 
-    &:hover {
-      filter: grayscale(0);
+    @media (min-width: $tablet-size-port) {
+      width: 48px;
+      height: 48px;
+      margin-right: 1rem;
+      filter: grayscale(1);
+      transition: filter ease 0.25s;
+
+      &:hover {
+        filter: grayscale(0);
+      }
     }
   }
 </style>

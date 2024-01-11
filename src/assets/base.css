@@ -15,7 +15,7 @@
   --color-beige: #fbf1f1;
   --color-dark-beige: #dec0c0;
 
-  --shadow-small-default: 0px 1px 4px 1px rgba(36, 36, 36, 0.07);
+  --shadow-small-default: 0px 1px 4px 1px #111111;
   --shadow-small-hovered: 0px 1px 16px 2px rgba(36, 36, 36, 0.07);
   --shadow-small-pressed: 0px 0px 6px rgba(36, 36, 36, 0.07);
   --shadow-small-hidden: 0px 1px 4px 1px rgba(36, 36, 36, 0);

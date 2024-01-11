@@ -43,20 +43,32 @@
   }
 
   .img {
-    width: 26px;
-    height: 26px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
     margin-right: 1rem;
+    @media (min-width: $tablet-size-land) {
+      width: 24px;
+      height: 24px;
+    }
   }
 
   .link {
     color: var(--color-text-dusk);
-    font-size: 0.9rem;
-    font-weight: 600;
-    transition: color ease 0.15s;
-
-    &:hover {
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: color ease 0.1s;
+    &:active {
       color: var(--color-text-light);
+    }
+
+    @media (min-width: $tablet-size-land) {
+      font-size: 0.9rem;
+      ont-weight: 600;
+
+      &:hover {
+        color: var(--color-text-light);
+      }
     }
   }
   .social {
