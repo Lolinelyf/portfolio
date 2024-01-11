@@ -57,7 +57,7 @@
     color: var(--color-text-dusk);
     font-size: 0.8rem;
     font-weight: 500;
-    transition: color ease 0.1s;
+
     &:active {
       color: var(--color-text-light);
     }
@@ -65,6 +65,7 @@
     @media (min-width: $tablet-size-land) {
       font-size: 0.9rem;
       ont-weight: 600;
+      transition: color ease 0.15s;
 
       &:hover {
         color: var(--color-text-light);

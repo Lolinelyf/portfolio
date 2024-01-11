@@ -55,10 +55,6 @@
     &:active .blur::after {
       opacity: 0;
     }
-    &:active .detail {
-      transform: translateY(1rem);
-    }
-
     &:active .link {
       color: var(--color-accent);
     }
