@@ -6,7 +6,7 @@ const SkillItems = [
   },
   {
     path: '/img/vue.png',
-    text: 'Vue',
+    text: 'Vue.js',
     id: 2,
   },
   {
