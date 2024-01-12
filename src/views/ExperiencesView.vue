@@ -6,7 +6,7 @@
       <div :class="$style.experience">
         <h2 :class="$style.title">Большой опыт работы</h2>
         <ul>
-          <li>Vue js</li>
+          <li>Vue.js</li>
           <li>JavaScript</li>
           <li>Api</li>
           <li>Router</li>
