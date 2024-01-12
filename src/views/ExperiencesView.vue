@@ -40,9 +40,11 @@
   .flex {
     display: flex;
     flex-flow: row wrap;
+    margin-bottom: 4rem;
 
     @media (min-width: $tablet-size-port) {
       flex-flow: row nowrap;
+      margin-bottom: 8rem;
     }
   }
   .experience {
@@ -51,10 +53,15 @@
     background-color: var(--color-grey-a);
     border-radius: 1rem;
     box-shadow: var(--shadow-small-default);
-    margin-bottom: 1rem;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
 
     @media (min-width: $mobile-size-land) {
       flex: 0 0 calc((100% - 2rem) / 2);
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
       margin-bottom: 2rem;
 
       &:not(:nth-child(2n)) {

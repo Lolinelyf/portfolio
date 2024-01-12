@@ -34,22 +34,28 @@
   .about {
     display: flex;
     width: 100%;
-    flex-flow: row;
+    flex-flow: column;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     letter-spacing: 2px;
+    margin-bottom: 2rem;
 
     @media (min-width: $desktop-size-small) {
+      flex-flow: row;
       align-items: center;
+      lign-items: flex-start;
+      margin-bottom: 8rem;
     }
   }
 
   .info {
-    flex: 0 0 82%;
-    width: 82%;
+    flex: 0 0 100%;
+    width: 100%;
+    margin-bottom: 2rem;
     @media (min-width: $tablet-size-port) {
       flex: 0 0 60%;
       width: 60%;
+      margin-bottom: 0;
     }
   }
 
@@ -58,8 +64,11 @@
   }
 
   .me {
-    flex: 0 0 12%;
-    width: 12%;
+    flex: 0 0 22%;
+    display: block;
+    border-radius: 100%;
+    overflow: hidden;
+    width: 22%;
 
     @media (min-width: $desktop-size-small) {
       flex: 0 0 25%;
@@ -71,9 +80,11 @@
     font-size: 0.9rem;
     margin-bottom: 2rem;
     color: var(--color-text-dusk);
+    letter-spacing: 1px;
 
     @media (min-width: $tablet-size-port) {
       font-size: 1rem;
+      letter-spacing: 2px;
     }
 
     @media (min-width: $tablet-size-land) {

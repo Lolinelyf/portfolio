@@ -17,9 +17,14 @@
     </div>
   </div>
 </template>
-<style module>
+<style module lang="scss">
   .flex {
     display: flex;
     flex-flow: row wrap;
+    margin-bottom: 4rem;
+
+    @media (min-width: $tablet-size-port) {
+      margin-bottom: 8rem;
+    }
   }
 </style>

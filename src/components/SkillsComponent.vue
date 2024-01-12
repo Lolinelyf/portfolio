@@ -29,10 +29,14 @@
     margin-right: 1rem;
     font-size: 0.8rem;
     font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: 1px;
 
     @media (min-width: $tablet-size-port) {
       font-size: 1rem;
       margin-right: 3rem;
+      line-height: 1.4;
+      letter-spacing: 2px;
     }
 
     & > p {
@@ -40,8 +44,8 @@
     }
   }
   .lang {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     margin-right: 0.5rem;
 
     @media (min-width: $tablet-size-port) {

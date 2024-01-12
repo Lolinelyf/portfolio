@@ -6,17 +6,10 @@
 </script>
 
 <template>
-  <AboutViews :class="$style.item" />
-  <ExperiencesView :class="$style.item" />
-  <ProjectsViews :class="$style.item" />
-  <ContactsViews :class="$style.item" />
+  <AboutViews />
+  <ExperiencesView />
+  <ProjectsViews />
+  <ContactsViews />
 </template>
 
-<style module lang="scss">
-  .item {
-    margin-bottom: 4rem;
-    @media (min-width: $tablet-size-land) {
-      margin-bottom: 8rem;
-    }
-  }
-</style>
+<style module></style>

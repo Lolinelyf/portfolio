@@ -13,8 +13,8 @@
         </div>
         <div :class="$style.item">
           <img :class="$style.img" src="/img/mail.png" alt="mail" />
-          <a :class="$style.link" href="mailto:lolinelyf@mail.ru"
-            >lolinelyf@mail.ru</a
+          <a :class="$style.link" href="mailto:job@lolinelyf.ru"
+            >job@lolinelyf.ru</a
           >
         </div>
       </div>
@@ -23,6 +23,7 @@
           v-for="item in getContactsItem()"
           :key="item.id"
           :path="item.path"
+          :link="item.link"
         />
       </div>
     </div>
@@ -43,8 +44,8 @@
   }
 
   .img {
-    width: 20px;
-    height: 20px;
+    width: 18px;
+    height: 18px;
     object-fit: contain;
     margin-right: 1rem;
     @media (min-width: $tablet-size-land) {

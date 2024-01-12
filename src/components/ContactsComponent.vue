@@ -4,6 +4,10 @@
       type: String,
       required: true,
     },
+    link: {
+      type: String,
+      required: true,
+    },
   });
 
   function alt(el) {
@@ -12,7 +16,7 @@
 </script>
 
 <template>
-  <a href="" :class="$style.link"
+  <a :href="props.link" :class="$style.link"
     ><img :class="$style.item" :src="props.path" :alt="alt(props.path)"
   /></a>
 </template>
@@ -20,24 +24,32 @@
 <style module lang="scss">
   .link {
     display: block;
-    width: 32px;
-    height: 32px;
-    margin-right: 0.5rem;
+    width: 30px;
+    height: 30px;
+
+    &:not(:last-child) {
+      margin-right: 0.6rem;
+    }
+
     @media (min-width: $tablet-size-land) {
       width: 40px;
       height: 40px;
-      margin-right: 1rem;
+      &:not(:last-child) {
+        margin-right: 1rem;
+      }
     }
   }
   .item {
-    width: 32px;
-    height: 32px;
+    width: 30px;
+    height: 30px;
     border-radius: 100%;
-    filter: grayscale(0) invert(0);
-    transition: filter ease 0.1s;
+
+    &[alt='git'] {
+      filter: grayscale(1) invert(1);
+    }
 
     &:active {
-      filter: grayscale(1) invert(1);
+      opacity: 0.6;
     }
 
     @media (min-width: $tablet-size-land) {

@@ -110,11 +110,14 @@
       display: block;
       width: 100%;
       height: 100%;
-      background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aab 100%);
+      background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1a63 100%);
       bottom: 0;
       left: 0;
       opacity: 1;
       transition: opacity ease 0.3s;
+      @media (min-width: $mobile-size-land) {
+        background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aab 100%);
+      }
     }
   }
   .img {
