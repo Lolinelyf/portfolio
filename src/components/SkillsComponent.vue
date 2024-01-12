@@ -26,6 +26,7 @@
   .skill {
     display: flex;
     align-items: center;
+    width: min-content;
     margin-right: 1rem;
     font-size: 0.8rem;
     font-weight: 400;
@@ -33,6 +34,7 @@
     letter-spacing: 1px;
 
     @media (min-width: $tablet-size-port) {
+      width: auto;
       font-size: 1rem;
       margin-right: 3rem;
       line-height: 1.4;
