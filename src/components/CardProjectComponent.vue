@@ -132,9 +132,12 @@
     height: calc(100% - 160px);
     flex-flow: column wrap;
     justify-content: space-between;
-    padding: 0 1rem 2rem;
+    padding: 1rem;
     box-sizing: border-box;
     transition: transform ease 0.25s;
+    @media (min-width: $mobile-size-land) {
+      padding: 0 1rem 2rem;
+    }
   }
 
   .name {
