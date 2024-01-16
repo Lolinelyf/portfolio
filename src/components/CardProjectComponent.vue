@@ -27,9 +27,17 @@
   const target = ref(null);
   const isActive = ref(false);
 
-  useIntersectionObserver(target, ([{ isIntersecting }]) => {
-    isActive.value = isIntersecting;
-  });
+  const options = {
+    threshold: 1,
+  };
+
+  useIntersectionObserver(
+    target,
+    ([{ isIntersecting }]) => {
+      isActive.value = isIntersecting;
+    },
+    options,
+  );
 </script>
 
 <template>
@@ -127,18 +135,15 @@
       left: 0;
       background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aab 100%);
       opacity: 1;
-      transition: opacity ease 0.5s;
-
-      @media (min-width: $mobile-size-land) {
-        transition: opacity ease 0.3s;
-      }
+      transition: opacity ease 0.3s;
     }
   }
   .img {
     display: block;
     width: 100%;
-    height: 160px;
     object-fit: cover;
+    transition: ease 0.25s;
+    height: 160px;
   }
 
   .detail {
@@ -148,11 +153,7 @@
     justify-content: space-between;
     box-sizing: border-box;
     padding: 0 1rem 2rem;
-    transition: transform ease 0.4s;
-
-    @media (min-width: $mobile-size-land) {
-      transition: transform ease 0.25s;
-    }
+    transition: transform ease 0.25s;
   }
 
   .name {
@@ -183,11 +184,7 @@
     font-weight: 400;
     color: var(--color-text-light);
     letter-spacing: 0;
-    transition: color ease 0.4s;
-
-    @media (min-width: $mobile-size-land) {
-      transition: color ease 0.25s;
-    }
+    transition: color ease 0.25s;
 
     & > p {
       display: inline-block;
