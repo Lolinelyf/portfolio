@@ -77,7 +77,7 @@
     overflow: hidden;
 
     &:not(:last-child) {
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
     @media (min-width: $mobile-size-land) {
