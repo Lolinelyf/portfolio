@@ -1,4 +1,5 @@
 <script setup>
+  import { ref } from 'vue';
   const props = defineProps({
     name: {
       type: String,
@@ -20,9 +21,13 @@
   function alt(el) {
     return el.split('/').pop().split('.').shift();
   }
+  const isActive = ref(false);
 </script>
 <template>
-  <a :class="$style.card" :href="props.link">
+  <a
+    :class="{ [$style.card]: true, [$style.active]: isActive }"
+    :href="props.link"
+  >
     <div :class="$style.blur">
       <img :class="$style.img" :src="props.img" :alt="alt(props.img)" />
     </div>
@@ -110,14 +115,14 @@
       display: block;
       width: 100%;
       height: 100%;
-      background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1a63 100%);
+      // background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1a63 100%);
       bottom: 0;
       left: 0;
       opacity: 1;
       transition: opacity ease 0.3s;
-      @media (min-width: $mobile-size-land) {
-        background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aab 100%);
-      }
+      // @media (min-width: $mobile-size-land) {
+      background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aab 100%);
+      // }
     }
   }
   .img {
@@ -132,12 +137,12 @@
     height: calc(100% - 160px);
     flex-flow: column wrap;
     justify-content: space-between;
-    padding: 1rem;
+    // padding: 1rem;
     box-sizing: border-box;
     transition: transform ease 0.25s;
-    @media (min-width: $mobile-size-land) {
-      padding: 0 1rem 2rem;
-    }
+    // @media (min-width: $mobile-size-land) {
+    padding: 0 1rem 2rem;
+    // }
   }
 
   .name {
@@ -181,5 +186,22 @@
     width: 12px;
     height: 12px;
     margin-right: 0.5rem;
+  }
+
+  .active {
+    box-shadow: 0px 0px 16px 2px var(--color-accent);
+    z-index: 1;
+
+    & .blur::after {
+      opacity: 0;
+    }
+
+    & .detail {
+      transform: translateY(1rem);
+    }
+
+    & .link {
+      color: var(--color-accent);
+    }
   }
 </style>

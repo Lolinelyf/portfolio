@@ -1,4 +1,5 @@
 <script setup>
+  import { onMounted } from 'vue';
   import CardProjectComponent from '@/components/CardProjectComponent.vue';
   import { getProjectItems } from '@/api/Projects';
 </script>
