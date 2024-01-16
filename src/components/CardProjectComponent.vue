@@ -29,7 +29,7 @@
 
   if (window.matchMedia('(max-width: 576px)').matches) {
     const options = {
-      rootMargin: '0px 0px -2% 0px',
+      rootMargin: '0px 0px -4% 0px',
       threshold: 1,
     };
     useIntersectionObserver(
@@ -76,9 +76,9 @@
     border-radius: 0.5rem;
     overflow: hidden;
     transform: translateY(8px);
-    transition: transform cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.3s;
+    transition: transform cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
     &:not(:last-child) {
-      margin-bottom: 1.5rem;
+      margin-bottom: 3rem;
     }
 
     @media (min-width: $mobile-size-land) {
@@ -141,7 +141,7 @@
       left: 0;
       background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aab 100%);
       opacity: 1;
-      transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.3s;
+      transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
     }
   }
   .img {
@@ -206,7 +206,7 @@
   }
 
   .active {
-    box-shadow: -2px 4px 16px 2px #1e3421;
+    box-shadow: -2px 4px 16px 4px #152317;
     transform: translateY(0);
 
     & .blur::after {
