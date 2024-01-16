@@ -1,5 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
+  import { ref, onMounted, onUnmounted } from 'vue';
+
   const props = defineProps({
     name: {
       type: String,
@@ -22,11 +23,21 @@
     return el.split('/').pop().split('.').shift();
   }
   const isActive = ref(false);
+
+  const observ = ref(null);
+
+  onMounted(() => {
+    const els = observ.value;
+    console.log(els.getBoundingClientRect().top);
+    //когда элемент в зоне видимости к нему добавляется класс active когда нет убирается и так не для всех разом а для каждого
+  });
 </script>
+
 <template>
   <a
     :class="{ [$style.card]: true, [$style.active]: isActive }"
     :href="props.link"
+    ref="observ"
   >
     <div :class="$style.blur">
       <img :class="$style.img" :src="props.img" :alt="alt(props.img)" />
