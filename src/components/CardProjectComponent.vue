@@ -63,13 +63,17 @@
     flex: 0 0 100%;
     background-color: var(--color-grey-a);
     box-shadow: var(--shadow-small-default);
-    margin-bottom: 1.5rem;
     border-radius: 0.5rem;
     overflow: hidden;
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
 
     @media (min-width: $mobile-size-land) {
       flex: 0 0 calc((100% - 8px) / 2);
-      margin-bottom: 0.5rem;
+      &:not(:last-child) {
+        margin-bottom: 0.5rem;
+      }
       &:not(:nth-child(2n)) {
         margin-right: 8px;
       }
