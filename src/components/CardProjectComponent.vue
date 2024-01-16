@@ -75,6 +75,7 @@
     box-shadow: var(--shadow-small-default);
     border-radius: 0.5rem;
     overflow: hidden;
+    transition: box-shadow cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
 
     &:not(:last-child) {
       margin-bottom: 2rem;
@@ -138,11 +139,12 @@
       height: 100%;
       bottom: 0;
       left: 0;
-      background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aab 100%);
+      background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aea 100%);
       opacity: 1;
-      transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.55s;
+      transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
 
       @media (min-width: $mobile-size-land) {
+        background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aab 100%);
         transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
       }
     }
@@ -152,11 +154,11 @@
     width: 100%;
     height: 160px;
     object-fit: cover;
-    transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.55s;
+    // transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
 
-    @media (min-width: $mobile-size-land) {
-      transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
-    }
+    // @media (min-width: $mobile-size-land) {
+    //   transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
+    // }
   }
 
   .detail {
@@ -165,11 +167,12 @@
     flex-flow: column wrap;
     justify-content: space-between;
     box-sizing: border-box;
-    padding: 0 1rem 2rem;
-    transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.55s;
+    padding: 1rem;
+    transition: transform cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
 
     @media (min-width: $mobile-size-land) {
-      transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
+      padding: 0 1rem 2rem;
+      transition: transform cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
     }
   }
 
@@ -201,10 +204,10 @@
     font-weight: 400;
     color: var(--color-text-light);
     letter-spacing: 0;
-    transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.55s;
+    transition: color cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
 
     @media (min-width: $mobile-size-land) {
-      transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
+      transition: color cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
     }
 
     & > p {
@@ -225,10 +228,6 @@
 
     & .blur::after {
       opacity: 0;
-    }
-
-    & .detail {
-      transform: translateY(1rem);
     }
 
     & .link {
