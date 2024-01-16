@@ -1,5 +1,6 @@
 <script setup>
-  import { ref, onMounted, onUnmounted } from 'vue';
+  import { ref } from 'vue';
+  import { useIntersectionObserver } from '@vueuse/core';
 
   const props = defineProps({
     name: {
@@ -22,14 +23,12 @@
   function alt(el) {
     return el.split('/').pop().split('.').shift();
   }
+
+  const target = ref(null);
   const isActive = ref(false);
 
-  const observ = ref(null);
-
-  onMounted(() => {
-    const els = observ.value;
-    console.log(els.getBoundingClientRect().top);
-    //когда элемент в зоне видимости к нему добавляется класс active когда нет убирается и так не для всех разом а для каждого
+  useIntersectionObserver(target, ([{ isIntersecting }]) => {
+    isActive.value = isIntersecting;
   });
 </script>
 
@@ -37,7 +36,7 @@
   <a
     :class="{ [$style.card]: true, [$style.active]: isActive }"
     :href="props.link"
-    ref="observ"
+    ref="target"
   >
     <div :class="$style.blur">
       <img :class="$style.img" :src="props.img" :alt="alt(props.img)" />
@@ -64,19 +63,13 @@
     flex: 0 0 100%;
     background-color: var(--color-grey-a);
     box-shadow: var(--shadow-small-default);
-    margin-bottom: 8px;
+    margin-bottom: 1.5rem;
     border-radius: 0.5rem;
     overflow: hidden;
 
-    &:active .blur::after {
-      opacity: 0;
-    }
-    &:active .link {
-      color: var(--color-accent);
-    }
-
     @media (min-width: $mobile-size-land) {
       flex: 0 0 calc((100% - 8px) / 2);
+      margin-bottom: 0.5rem;
       &:not(:nth-child(2n)) {
         margin-right: 8px;
       }
@@ -126,14 +119,15 @@
       display: block;
       width: 100%;
       height: 100%;
-      // background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1a63 100%);
       bottom: 0;
       left: 0;
-      opacity: 1;
-      transition: opacity ease 0.3s;
-      // @media (min-width: $mobile-size-land) {
       background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aab 100%);
-      // }
+      opacity: 1;
+      transition: opacity ease 0.5s;
+
+      @media (min-width: $mobile-size-land) {
+        transition: opacity ease 0.3s;
+      }
     }
   }
   .img {
@@ -148,12 +142,13 @@
     height: calc(100% - 160px);
     flex-flow: column wrap;
     justify-content: space-between;
-    // padding: 1rem;
     box-sizing: border-box;
-    transition: transform ease 0.25s;
-    // @media (min-width: $mobile-size-land) {
     padding: 0 1rem 2rem;
-    // }
+    transition: transform ease 0.4s;
+
+    @media (min-width: $mobile-size-land) {
+      transition: transform ease 0.25s;
+    }
   }
 
   .name {
@@ -184,7 +179,11 @@
     font-weight: 400;
     color: var(--color-text-light);
     letter-spacing: 0;
-    transition: color ease 0.25s;
+    transition: color ease 0.4s;
+
+    @media (min-width: $mobile-size-land) {
+      transition: color ease 0.25s;
+    }
 
     & > p {
       display: inline-block;
@@ -200,8 +199,7 @@
   }
 
   .active {
-    box-shadow: 0px 0px 16px 2px var(--color-accent);
-    z-index: 1;
+    box-shadow: -2px 4px 16px 2px #1e3421;
 
     & .blur::after {
       opacity: 0;
