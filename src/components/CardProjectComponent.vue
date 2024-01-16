@@ -27,17 +27,19 @@
   const target = ref(null);
   const isActive = ref(false);
 
-  const options = {
-    threshold: 1,
-  };
-
-  useIntersectionObserver(
-    target,
-    ([{ isIntersecting }]) => {
-      isActive.value = isIntersecting;
-    },
-    options,
-  );
+  if (window.matchMedia('(max-width: 576px)').matches) {
+    const options = {
+      rootMargin: '0px 0px -2% 0px',
+      threshold: 1,
+    };
+    useIntersectionObserver(
+      target,
+      ([{ isIntersecting }]) => {
+        isActive.value = isIntersecting;
+      },
+      options,
+    );
+  }
 </script>
 
 <template>
@@ -73,6 +75,8 @@
     box-shadow: var(--shadow-small-default);
     border-radius: 0.5rem;
     overflow: hidden;
+    transform: translateY(8px);
+    transition: transform cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.3s;
     &:not(:last-child) {
       margin-bottom: 1.5rem;
     }
@@ -82,6 +86,8 @@
       &:not(:last-child) {
         margin-bottom: 0.5rem;
       }
+      margin-bottom: 0.5rem;
+      transform: translateY(0);
       &:not(:nth-child(2n)) {
         margin-right: 8px;
       }
@@ -135,14 +141,14 @@
       left: 0;
       background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aab 100%);
       opacity: 1;
-      transition: opacity ease 0.3s;
+      transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.3s;
     }
   }
   .img {
     display: block;
     width: 100%;
     object-fit: cover;
-    transition: ease 0.25s;
+    transition: cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
     height: 160px;
   }
 
@@ -153,7 +159,7 @@
     justify-content: space-between;
     box-sizing: border-box;
     padding: 0 1rem 2rem;
-    transition: transform ease 0.25s;
+    transition: transform cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
   }
 
   .name {
@@ -184,7 +190,7 @@
     font-weight: 400;
     color: var(--color-text-light);
     letter-spacing: 0;
-    transition: color ease 0.25s;
+    transition: color cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
 
     & > p {
       display: inline-block;
@@ -201,6 +207,7 @@
 
   .active {
     box-shadow: -2px 4px 16px 2px #1e3421;
+    transform: translateY(0);
 
     & .blur::after {
       opacity: 0;
