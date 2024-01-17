@@ -29,7 +29,7 @@
 
   if (window.matchMedia('(max-width: 576px)').matches) {
     const options = {
-      rootMargin: '-70px 0px 70px 0px',
+      rootMargin: '-76px 0px 50px 0px',
       threshold: 1,
     };
     useIntersectionObserver(
