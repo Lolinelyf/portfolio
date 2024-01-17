@@ -29,7 +29,7 @@
 
   if (window.matchMedia('(max-width: 576px)').matches) {
     const options = {
-      rootMargin: '-2% 0px 0px 0px',
+      rootMargin: '-70px 0px 70px 0px',
       threshold: 1,
     };
     useIntersectionObserver(
@@ -75,7 +75,7 @@
     box-shadow: var(--shadow-small-default);
     border-radius: 0.5rem;
     overflow: hidden;
-    transition: box-shadow cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
+    transition: box-shadow cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
 
     &:not(:last-child) {
       margin-bottom: 2rem;
@@ -142,7 +142,7 @@
       left: 0;
       background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aea 100%);
       opacity: 1;
-      transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
+      transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
 
       @media (min-width: $mobile-size-land) {
         background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aab 100%);
@@ -164,7 +164,7 @@
     justify-content: space-between;
     box-sizing: border-box;
     padding: 1rem;
-    transition: transform cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
+    transition: transform cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
 
     @media (min-width: $mobile-size-land) {
       padding: 0 1rem 2rem;
@@ -200,7 +200,7 @@
     font-weight: 400;
     color: var(--color-text-light);
     letter-spacing: 0;
-    transition: color cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
+    transition: color cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
 
     @media (min-width: $mobile-size-land) {
       transition: color cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
