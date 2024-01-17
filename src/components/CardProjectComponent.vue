@@ -29,8 +29,8 @@
 
   if (window.matchMedia('(max-width: 576px)').matches) {
     const options = {
-      rootMargin: '-15% 0px 0px 0px',
-      threshold: 0.1,
+      rootMargin: '-2% 0px 0px 0px',
+      threshold: 1,
     };
     useIntersectionObserver(
       target,
@@ -75,7 +75,7 @@
     box-shadow: var(--shadow-small-default);
     border-radius: 0.5rem;
     overflow: hidden;
-    transition: box-shadow cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
+    transition: box-shadow cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
 
     &:not(:last-child) {
       margin-bottom: 2rem;
@@ -100,6 +100,7 @@
 
     @media (min-width: $tablet-size-port) {
       flex: 0 0 calc((100% - 16px) / 3);
+
       &:not(:nth-child(2n)) {
         margin-right: 0;
       }
@@ -141,7 +142,7 @@
       left: 0;
       background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aea 100%);
       opacity: 1;
-      transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
+      transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
 
       @media (min-width: $mobile-size-land) {
         background: linear-gradient(0deg, #1a1a1a 0%, #1a1a1aab 100%);
@@ -154,11 +155,6 @@
     width: 100%;
     height: 160px;
     object-fit: cover;
-    // transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
-
-    // @media (min-width: $mobile-size-land) {
-    //   transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
-    // }
   }
 
   .detail {
@@ -168,7 +164,7 @@
     justify-content: space-between;
     box-sizing: border-box;
     padding: 1rem;
-    transition: transform cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
+    transition: transform cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
 
     @media (min-width: $mobile-size-land) {
       padding: 0 1rem 2rem;
@@ -204,7 +200,7 @@
     font-weight: 400;
     color: var(--color-text-light);
     letter-spacing: 0;
-    transition: color cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
+    transition: color cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
 
     @media (min-width: $mobile-size-land) {
       transition: color cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.25s;
