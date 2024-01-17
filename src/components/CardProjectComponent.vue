@@ -29,8 +29,8 @@
 
   if (window.matchMedia('(max-width: 576px)').matches) {
     const options = {
-      rootMargin: '-76px 0px 50px 0px',
-      threshold: 1,
+      rootMargin: '0px 0px 70px 0px',
+      threshold: 0.15,
     };
     useIntersectionObserver(
       target,
@@ -72,10 +72,11 @@
   .card {
     flex: 0 0 100%;
     background-color: var(--color-grey-a);
-    box-shadow: var(--shadow-small-default);
     border-radius: 0.5rem;
     overflow: hidden;
-    transition: box-shadow cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
+    box-shadow: -2px 4px 14px 2px #152317;
+    opacity: 0;
+    transition: opacity cubic-bezier(0.23, 0.51, 0.63, 0.98) 0.5s;
 
     &:not(:last-child) {
       margin-bottom: 2rem;
@@ -83,11 +84,15 @@
 
     @media (min-width: $mobile-size-land) {
       flex: 0 0 calc((100% - 8px) / 2);
+      box-shadow: var(--shadow-small-default);
+      margin-bottom: 0.5rem;
+      transform: translateY(0);
+      opacity: 1;
+
       &:not(:last-child) {
         margin-bottom: 0.5rem;
       }
-      margin-bottom: 0.5rem;
-      transform: translateY(0);
+
       &:not(:nth-child(2n)) {
         margin-right: 8px;
       }
@@ -220,7 +225,7 @@
   }
 
   .active {
-    box-shadow: -2px 4px 16px 2px #152317;
+    opacity: 1;
 
     & .blur::after {
       opacity: 0;
