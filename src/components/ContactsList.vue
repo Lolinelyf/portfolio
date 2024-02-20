@@ -3,10 +3,15 @@
   import { onMounted, ref } from 'vue';
 
   const contactsList = ref([]);
-  onMounted(() => {
-    fetch('https://436e9db67f2dc527.mokky.dev/Contacts')
-      .then((res) => res.json())
-      .then((data) => (contactsList.value = data));
+  onMounted(async () => {
+    try {
+      const response = await fetch(
+        'https://436e9db67f2dc527.mokky.dev/contacts',
+      );
+      contactsList.value = await response.json();
+    } catch (err) {
+      console.log(err);
+    }
   });
 </script>
 <template>

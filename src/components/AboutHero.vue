@@ -2,10 +2,13 @@
   import SkillsItem from '@/components/SkillsItem.vue';
   import { onMounted, ref } from 'vue';
   const skillsList = ref([]);
-  onMounted(() => {
-    fetch('https://436e9db67f2dc527.mokky.dev/skills')
-      .then((res) => res.json())
-      .then((data) => (skillsList.value = data));
+  onMounted(async () => {
+    try {
+      const response = await fetch('https://436e9db67f2dc527.mokky.dev/skills');
+      skillsList.value = await response.json();
+    } catch (err) {
+      console.log(err);
+    }
   });
 </script>
 <template>

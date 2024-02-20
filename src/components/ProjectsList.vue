@@ -4,10 +4,15 @@
 
   const projectsList = ref([]);
 
-  onMounted(() => {
-    fetch('https://436e9db67f2dc527.mokky.dev/projects')
-      .then((res) => res.json())
-      .then((data) => (projectsList.value = data));
+  onMounted(async () => {
+    try {
+      const response = await fetch(
+        'https://436e9db67f2dc527.mokky.dev/projects',
+      );
+      projectsList.value = await response.json();
+    } catch (err) {
+      console.log(err);
+    }
   });
 </script>
 <template>
