@@ -1,6 +1,12 @@
 <script setup>
-  import SkillsComponent from '@/components/SkillsComponent.vue';
-  import { getSkillsItem } from '@/api/Skills.js';
+  import SkillsItem from '@/components/SkillsItem.vue';
+  import { onMounted, ref } from 'vue';
+  const skillsList = ref([]);
+  onMounted(() => {
+    fetch('https://436e9db67f2dc527.mokky.dev/skills')
+      .then((res) => res.json())
+      .then((data) => (skillsList.value = data));
+  });
 </script>
 <template>
   <div class="container">
@@ -24,8 +30,8 @@
           </p>
         </div>
         <div :class="$style.skills">
-          <SkillsComponent
-            v-for="item in getSkillsItem()"
+          <SkillsItem
+            v-for="item in skillsList"
             :key="item.id"
             :path="item.path"
             :text="item.text"

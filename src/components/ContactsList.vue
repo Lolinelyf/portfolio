@@ -1,6 +1,13 @@
 <script setup>
-  import ContactsComponent from '@/components/ContactsComponent.vue';
-  import { getContactsItem } from '@/api/Contacts.js';
+  import ContactsItem from '@/components/ContactsItem.vue';
+  import { onMounted, ref } from 'vue';
+
+  const contactsList = ref([]);
+  onMounted(() => {
+    fetch('https://436e9db67f2dc527.mokky.dev/Contacts')
+      .then((res) => res.json())
+      .then((data) => (contactsList.value = data));
+  });
 </script>
 <template>
   <div class="container">
@@ -19,8 +26,8 @@
         </div>
       </div>
       <div :class="$style.social">
-        <ContactsComponent
-          v-for="item in getContactsItem()"
+        <ContactsItem
+          v-for="item in contactsList"
           :key="item.id"
           :path="item.path"
           :link="item.link"

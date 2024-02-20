@@ -1,15 +1,9 @@
 <script setup>
-  import AboutViews from '@/views/AboutViews.vue';
-  import ExperiencesView from '@/views/ExperiencesView.vue';
-  import ProjectsViews from './views/ProjectsViews.vue';
-  import ContactsViews from '@/views/ContactsViews.vue';
+  import HomePage from '@/pages/HomePage.vue';
 </script>
 
 <template>
-  <AboutViews />
-  <ExperiencesView />
-  <ProjectsViews />
-  <ContactsViews />
+  <HomePage />
 </template>
 
 <style module></style>
