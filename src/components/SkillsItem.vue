@@ -11,13 +11,17 @@
   });
 
   function alt(el) {
-    return el.split('/').pop().split('.').shift();
+    return el.split("/").pop().split(".").shift();
   }
 </script>
 
 <template>
   <div :class="$style.skill">
-    <img :class="$style.lang" :src="props.path" :alt="alt(props.path)" />
+    <img
+      :class="$style.lang"
+      :src="props.path"
+      :alt="alt(props.path)"
+    />
     <p>{{ props.text }}</p>
   </div>
 </template>

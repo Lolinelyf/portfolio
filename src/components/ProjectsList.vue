@@ -1,13 +1,13 @@
 <script setup>
-  import CardProject from '@/components/CardProject.vue';
-  import { onMounted, ref } from 'vue';
+  import CardProject from "@/components/CardProject.vue";
+  import { onMounted, ref } from "vue";
 
   const projectsList = ref([]);
 
   onMounted(async () => {
     try {
       const response = await fetch(
-        'https://436e9db67f2dc527.mokky.dev/projects',
+        "https://436e9db67f2dc527.mokky.dev/projects",
       );
       projectsList.value = await response.json();
     } catch (err) {
@@ -16,7 +16,10 @@
   });
 </script>
 <template>
-  <div class="container">
+  <div
+    class="container"
+    v-if="projectsList"
+  >
     <h1>Projects</h1>
     <div :class="$style.flex">
       <CardProject

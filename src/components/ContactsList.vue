@@ -1,12 +1,12 @@
 <script setup>
-  import ContactsItem from '@/components/ContactsItem.vue';
-  import { onMounted, ref } from 'vue';
+  import ContactsItem from "@/components/ContactsItem.vue";
+  import { onMounted, ref } from "vue";
 
   const contactsList = ref([]);
   onMounted(async () => {
     try {
       const response = await fetch(
-        'https://436e9db67f2dc527.mokky.dev/contacts',
+        "https://436e9db67f2dc527.mokky.dev/contacts",
       );
       contactsList.value = await response.json();
     } catch (err) {
@@ -15,17 +15,34 @@
   });
 </script>
 <template>
-  <div class="container">
+  <div
+    class="container"
+    v-if="contactsList"
+  >
     <h1>Contacts</h1>
     <div :class="$style.flex">
       <div :class="$style.contacts">
         <div :class="$style.item">
-          <img :class="$style.img" src="/img/tel.png" alt="tel" />
-          <a :class="$style.link" href="tel:+79880908821">+7(988)090-88-21</a>
+          <img
+            :class="$style.img"
+            src="/img/tel.png"
+            alt="tel"
+          />
+          <a
+            :class="$style.link"
+            href="tel:+79880908821"
+            >+7(988)090-88-21</a
+          >
         </div>
         <div :class="$style.item">
-          <img :class="$style.img" src="/img/mail.png" alt="mail" />
-          <a :class="$style.link" href="mailto:job@lolinelyf.ru"
+          <img
+            :class="$style.img"
+            src="/img/mail.png"
+            alt="mail"
+          />
+          <a
+            :class="$style.link"
+            href="mailto:job@lolinelyf.ru"
             >job@lolinelyf.ru</a
           >
         </div>

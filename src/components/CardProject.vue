@@ -1,6 +1,6 @@
 <script setup>
-  import { ref } from 'vue';
-  import { useIntersectionObserver } from '@vueuse/core';
+  import { ref } from "vue";
+  import { useIntersectionObserver } from "@vueuse/core";
 
   const props = defineProps({
     name: {
@@ -21,15 +21,15 @@
     },
   });
   function alt(el) {
-    return el.split('/').pop().split('.').shift();
+    return el.split("/").pop().split(".").shift();
   }
 
   const target = ref(null);
   const isActive = ref(false);
 
-  if (window.matchMedia('(max-width: 576px)').matches) {
+  if (window.matchMedia("(max-width: 576px)").matches) {
     const options = {
-      rootMargin: '0px 0px 70px 0px',
+      rootMargin: "0px 0px 70px 0px",
       threshold: 0.15,
     };
     useIntersectionObserver(
@@ -49,7 +49,11 @@
     ref="target"
   >
     <div :class="$style.blur">
-      <img :class="$style.img" :src="props.img" :alt="alt(props.img)" />
+      <img
+        :class="$style.img"
+        :src="props.img"
+        :alt="alt(props.img)"
+      />
     </div>
 
     <div :class="$style.detail">
@@ -62,7 +66,11 @@
         </div>
       </section>
       <div :class="$style.link">
-        <img :class="$style.icon" src="/img/link.png" alt="link" />
+        <img
+          :class="$style.icon"
+          src="/img/link.png"
+          alt="link"
+        />
         <p>Look it up</p>
       </div>
     </div>
@@ -138,7 +146,7 @@
   .blur {
     position: relative;
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       display: block;
       width: 100%;

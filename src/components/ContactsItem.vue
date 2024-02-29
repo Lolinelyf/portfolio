@@ -11,13 +11,18 @@
   });
 
   function alt(el) {
-    return el.split('/').pop().split('.').shift();
+    return el.split("/").pop().split(".").shift();
   }
 </script>
 
 <template>
-  <a :href="props.link" :class="$style.link"
-    ><img :class="$style.item" :src="props.path" :alt="alt(props.path)"
+  <a
+    :href="props.link"
+    :class="$style.link"
+    ><img
+      :class="$style.item"
+      :src="props.path"
+      :alt="alt(props.path)"
   /></a>
 </template>
 
@@ -44,7 +49,7 @@
     height: 30px;
     border-radius: 100%;
 
-    &[alt='git'] {
+    &[alt="git"] {
       filter: grayscale(1) invert(1);
     }
 

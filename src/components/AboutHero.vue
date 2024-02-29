@@ -1,10 +1,10 @@
 <script setup>
-  import SkillsItem from '@/components/SkillsItem.vue';
-  import { onMounted, ref } from 'vue';
+  import SkillsItem from "@/components/SkillsItem.vue";
+  import { onMounted, ref } from "vue";
   const skillsList = ref([]);
   onMounted(async () => {
     try {
-      const response = await fetch('https://436e9db67f2dc527.mokky.dev/skills');
+      const response = await fetch("https://436e9db67f2dc527.mokky.dev/skills");
       skillsList.value = await response.json();
     } catch (err) {
       console.log(err);
@@ -32,7 +32,10 @@
             и готовности к постоянному росту.
           </p>
         </div>
-        <div :class="$style.skills">
+        <div
+          :class="$style.skills"
+          v-if="skillsList"
+        >
           <SkillsItem
             v-for="item in skillsList"
             :key="item.id"
@@ -41,7 +44,11 @@
           />
         </div>
       </div>
-      <img :class="$style.me" src="/img/me.png" alt="me" />
+      <img
+        :class="$style.me"
+        src="/img/me.png"
+        alt="me"
+      />
     </div>
   </div>
 </template>
